@@ -13,23 +13,9 @@ export interface Dish {
   match?: number;
 }
 
-export interface User {
-  id: string;
-  username: string;
-  email: string;
-  favorites: string[]; // dish ids
-}
-
 export interface SearchResult {
   type: "dish" | "ingredient" | "region";
   id: string;
   name: string;
   imageUrl?: string;
-}
-
-export interface AuthState {
-  user: User | null;
-  isAuthenticated: boolean;
-  loading: boolean;
-  error: string | null;
 }
