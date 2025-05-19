@@ -34,7 +34,7 @@ A modern web application for managing and exploring recipes, built with a micros
 
 ```bash
 git clone https://github.com/Metalblade46/Cuisinepro
-cd cuisinepro
+cd Cuisinepro
 ```
 
 2. Install dependencies for both projects:
@@ -71,7 +71,7 @@ The server will be available at `http://localhost:3001` and the UI at `http://lo
 
 ```bash
 git clone https://github.com/Metalblade46/Cuisinepro
-cd cuisinepro
+cd Cuisinepro
 ```
 
 2. Build and start the containers:
