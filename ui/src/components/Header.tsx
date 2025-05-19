@@ -101,10 +101,7 @@ interface HeaderProps {
   dishes: Dish[];
 }
 
-const Header: React.FC<HeaderProps> = ({
-  title = "Indian Cuisine Explorer",
-  dishes,
-}) => {
+const Header: React.FC<HeaderProps> = ({ title = "Cuisine Pro", dishes }) => {
   const classes = useStyles();
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");

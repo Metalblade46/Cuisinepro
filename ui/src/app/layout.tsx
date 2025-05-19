@@ -13,7 +13,7 @@ if (typeof window !== "undefined") {
 }
 
 export const metadata: Metadata = {
-  title: "Indian Cuisine Explorer",
+  title: "Cuisine Pro",
   description: "Explore the rich flavors of Indian cuisine",
 };
 
