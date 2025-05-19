@@ -33,7 +33,7 @@ A modern web application for managing and exploring recipes, built with a micros
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Metalblade46/Cuisinepro
 cd cuisinepro
 ```
 
@@ -70,7 +70,7 @@ The server will be available at `http://localhost:3001` and the UI at `http://lo
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Metalblade46/Cuisinepro
 cd cuisinepro
 ```
 
