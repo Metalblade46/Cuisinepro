@@ -73,3 +73,18 @@ export const getDishRegions = async (): Promise<string[]> => {
     return [];
   }
 };
+
+export const getDishesByIngredients = async (
+  ingredients: string[]
+): Promise<Dish[]> => {
+  try {
+    const response = await fetch(
+      `${API_URL}/dishes/search?ingredients=${ingredients.join(",")}`
+    );
+    const dishes = await response.json();
+    return dishes;
+  } catch (error) {
+    console.error("Error fetching dishes by ingredients:", error);
+    return [];
+  }
+};

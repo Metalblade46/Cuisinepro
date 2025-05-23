@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "bun --watch index.ts",
     "build": "bun build ./index.ts --outdir ./dist",
-    "start": "bun index.ts"
+    "start": "bun index.ts",
+    "seed": "bun seed.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -16,8 +17,10 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@prisma/client": "^6.8.2",
     "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "prisma": "^6.8.2"
   }
 }

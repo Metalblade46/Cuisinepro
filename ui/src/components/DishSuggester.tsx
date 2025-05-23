@@ -20,9 +20,10 @@ import {
   DefaultButton,
   IconButton,
 } from "@fluentui/react";
-import { getDishSuggestions } from "../lib/utils";
+
 import { Dish } from "../types";
 import { useRouter } from "next/navigation";
+import { getDishesByIngredients } from "@/data/dishes";
 
 const classNames = mergeStyleSets({
   container: {
@@ -132,13 +133,7 @@ interface IngredientTag extends ITag {
   name: string;
 }
 
-const DishSuggester = ({
-  allIngredients,
-  dishes,
-}: {
-  allIngredients: string[];
-  dishes: Dish[];
-}) => {
+const DishSuggester = ({ allIngredients }: { allIngredients: string[] }) => {
   const router = useRouter();
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>(
     JSON.parse(localStorage.getItem("selectedIngredients") || "[]")
@@ -162,17 +157,20 @@ const DishSuggester = ({
   );
 
   useEffect(() => {
-    if (selectedIngredients.length > 0) {
-      const suggestedDishes = getDishSuggestions(selectedIngredients, dishes);
+    const updateSuggestedDishes = async () => {
+      const suggestedDishes = await getDishesByIngredients(selectedIngredients);
       setSuggestedDishes(
         suggestedDishes
           .map((dish) => ({ ...dish, match: getMatchPercentage(dish) }))
           .sort((a, b) => b.match - a.match)
       );
+    };
+    if (selectedIngredients.length > 0) {
+      updateSuggestedDishes();
     } else {
       setSuggestedDishes([]);
     }
-  }, [dishes, getMatchPercentage, selectedIngredients]);
+  }, [getMatchPercentage, selectedIngredients]);
   useEffect(() => {
     localStorage.setItem(
       "selectedIngredients",
@@ -195,10 +193,7 @@ const DishSuggester = ({
     setSelectedIngredients((state) => state.filter((i) => i !== ingredient));
   };
 
-  const onFilterChanged = (
-    filterText: string
-    // tagList?: IngredientTag[]
-  ): IngredientTag[] => {
+  const onFilterChanged = (filterText: string): IngredientTag[] => {
     setSearchTerm(filterText);
     return filteredIngredients;
   };

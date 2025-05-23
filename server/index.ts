@@ -1,6 +1,6 @@
 import express, { type Request, type Response } from "express";
 import cors from "cors";
-import { getDishes, seed } from "./data";
+import { getDishes } from "./service";
 import dishesRouter from "./controller/dishes";
 function main() {
   const app = express();
@@ -18,10 +18,4 @@ function main() {
   });
 }
 
-seed()
-  .then(() => {
-    main();
-  })
-  .catch((err) => {
-    console.error(err.message);
-  });
+main();

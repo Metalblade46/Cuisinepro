@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Dish" ALTER COLUMN "flavour_profile" DROP NOT NULL,
+ALTER COLUMN "course" DROP NOT NULL,
+ALTER COLUMN "state" DROP NOT NULL,
+ALTER COLUMN "region" DROP NOT NULL;
